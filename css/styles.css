@@ -11130,7 +11130,7 @@ body {
   overflow: hidden; /* Zorgt dat de video niet buiten het veld steekt */
 }
 
-/* Zorgt dat de video het hele vlak vult */
+/* Standaardinstelling (bijv. voor mobiel) */
 .bg-video {
   position: absolute;
   top: 50%;
@@ -11142,6 +11142,15 @@ body {
   transform: translate(-50%, -50%);
   object-fit: cover;
   z-index: 0;
+}
+
+/* Instelling voor laptops en desktop schermen (breder dan 992px) */
+@media (min-width: 992px) {
+  .bg-video {
+    top: 0;
+    transform: translateX(-50%);
+    object-position: top center;
+  }
 }
 
 /* Behoudt de donkere verlooplaag over de video voor leesbaarheid */
