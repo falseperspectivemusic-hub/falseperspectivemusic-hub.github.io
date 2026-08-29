@@ -11149,7 +11149,7 @@ body {
   .bg-video {
     top: 0;
     transform: translateX(-50%);
-    object-position: center 25%;
+    object-position: center 40%;
   }
 }
 
