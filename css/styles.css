@@ -11126,26 +11126,18 @@ body {
   position: relative;
   width: 100%;
   height: auto;
-  min-height: 35rem;
-  padding: 15rem 0;
-  overflow: hidden; /* Zorgt dat de video niet buiten het veld steekt */
+  overflow: hidden;
 }
 
-/* Zorgt dat de video het hele vlak vult */
+/* 1. STANDAARD INSTELLINGEN (VOOR MOBIEL: VOLLEDIGE VIDEO ZICHTBAAR) */
 .bg-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
+  position: relative;
+  width: 100%;
   height: auto;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  z-index: 0;
+  object-fit: contain;
+  display: block;
 }
 
-/* Behoudt de donkere verlooplaag over de video voor leesbaarheid */
 .overlay {
   position: absolute;
   top: 0;
@@ -11156,10 +11148,41 @@ body {
   z-index: 1;
 }
 
-/* Zorgt dat de tekst boven de video en overlay zweeft */
 .masthead .content {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
   z-index: 2;
+}
+
+/* 2. INSTELLINGEN VOOR GROTE SCHERMEN (DESKTOP / VANAF 992PX) */
+@media (min-width: 992px) {
+  .masthead {
+    min-height: 35rem;
+    padding: 15rem 0;
+  }
+
+  .bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    object-position: center center; /* Gewoon weer strak in het midden */
+  }
+
+  .masthead .content {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+  }
 }
 
 /*einde*/
