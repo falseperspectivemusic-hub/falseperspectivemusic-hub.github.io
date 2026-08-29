@@ -11107,7 +11107,7 @@ body {
   letter-spacing: 0.15rem;
   border: 0;
 }
-
+/*
 .masthead {
   position: relative;
   width: 100%;
@@ -11119,7 +11119,50 @@ body {
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
+}*/
+
+.masthead {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 35rem;
+  padding: 15rem 0;
+  overflow: hidden; /* Zorgt dat de video niet buiten het veld steekt */
 }
+
+/* Zorgt dat de video het hele vlak vult */
+.bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Behoudt de donkere verlooplaag over de video voor leesbaarheid */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%);
+  z-index: 1;
+}
+
+/* Zorgt dat de tekst boven de video en overlay zweeft */
+.masthead .content {
+  position: relative;
+  z-index: 2;
+}
+
+/*einde*/
+
 .masthead h1, .masthead .h1 {
   font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 2.5rem;
